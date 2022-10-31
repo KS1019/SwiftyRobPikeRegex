@@ -57,4 +57,20 @@ final class SwiftyRobPikeRegexTests: XCTestCase {
 	func testStartEndEmpty() {
 		XCTAssertTrue(SwiftyRobPikeRegex.match(regexp: "^$", text: ""))
 	}
+
+	func testStartEndSome() {
+		XCTAssertFalse(SwiftyRobPikeRegex.match(regexp: "^$", text: "x"))
+	}
+
+	func testStartDotEndZero() {
+		XCTAssertFalse(SwiftyRobPikeRegex.match(regexp: "^.$", text: ""))
+	}
+
+	func testStartDotEndOne() {
+		XCTAssertTrue(SwiftyRobPikeRegex.match(regexp: "^.$", text: "x"))
+	}
+
+	func testStartDotEndTwo() {
+		XCTAssertFalse(SwiftyRobPikeRegex.match(regexp: "^.$", text: "xy"))
+	}
 }
